@@ -1,4 +1,6 @@
 FROM node:7-alpine
+# Enable verbose mode
+RUN set -x
 # Update the package list and install Python 3
 RUN apk update && \
     apk add --no-cache python3 && \
