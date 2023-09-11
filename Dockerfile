@@ -13,4 +13,4 @@ RUN curl -fsSL https://aka.ms/install-azd.sh | bash
 # test 
 RUN python3 --version
 RUN node --version
-RUN azd --version
+RUN azd --help
