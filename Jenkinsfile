@@ -25,7 +25,9 @@ pipeline {
     stages {
         stage('Check docker image') {
             steps {
-                sh 'azd -h'
+                sh 'node --version'
+                sh 'python3 --version'
+                sh 'azd -version'
             }
         }
         stage('Check sources') {
