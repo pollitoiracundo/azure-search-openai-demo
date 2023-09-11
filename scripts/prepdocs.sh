@@ -1,4 +1,4 @@
- #!/bin/sh
+#!/bin/sh
 
 echo ""
 echo "Loading azd .env file from current environment"

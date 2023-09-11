@@ -7,26 +7,26 @@ param environmentName string
 
 @minLength(1)
 @description('Primary location for all resources')
-param location string
+param location string = 'eastus'
 
 param appServicePlanName string = ''
 param backendServiceName string = ''
-param resourceGroupName string = ''
+param resourceGroupName string = 'RG-Hibbett-AI'
 
-param searchServiceName string = ''
-param searchServiceResourceGroupName string = ''
+param searchServiceName string = 'aicog'
+param searchServiceResourceGroupName string = 'RG-Hibbett-AI'
 param searchServiceResourceGroupLocation string = location
 
 param searchServiceSkuName string = 'standard'
 param searchIndexName string = 'gptkbindex'
 
-param storageAccountName string = ''
-param storageResourceGroupName string = ''
+param storageAccountName string = 'sghibbetai'
+param storageResourceGroupName string = 'RG-Hibbett-AI'
 param storageResourceGroupLocation string = location
 param storageContainerName string = 'content'
 
-param openAiServiceName string = ''
-param openAiResourceGroupName string = ''
+param openAiServiceName string = 'hibbettai'
+param openAiResourceGroupName string = 'RG-HibbettAI'
 @description('Location for the OpenAI resource group')
 @allowed(['eastus', 'francecentral', 'southcentralus', 'uksouth', 'westeurope'])
 @metadata({
@@ -34,7 +34,7 @@ param openAiResourceGroupName string = ''
     type: 'location'
   }
 })
-param openAiResourceGroupLocation string
+param openAiResourceGroupLocation string = 'eastus'
 
 param openAiSkuName string = 'S0'
 

@@ -94,8 +94,9 @@ def get_document_text(filename):
     else:
         if args.verbose: print(f"Extracting text from '{filename}' using Azure Form Recognizer")
         form_recognizer_client = DocumentAnalysisClient(endpoint=f"https://{args.formrecognizerservice}.cognitiveservices.azure.com/", credential=formrecognizer_creds, headers={"x-ms-useragent": "azure-search-chat-demo/1.0.0"})
+        model = "prebuilt-layout"
         with open(filename, "rb") as f:
-            poller = form_recognizer_client.begin_analyze_document("prebuilt-layout", document = f)
+            poller = form_recognizer_client.begin_analyze_document(model, document = f)
         form_recognizer_results = poller.result()
 
         for page_num, page in enumerate(form_recognizer_results.pages):
@@ -353,6 +354,10 @@ if __name__ == "__main__":
         print(f"Processing files...")
         for filename in glob.glob(args.files):
             if args.verbose: print(f"Processing '{filename}'")
+            extension = os.path.splitext(filename)[1].lower()
+            if extension != '.pdf':
+                print(f"Skipping '{filename}'")
+                continue
             if args.remove:
                 remove_blobs(filename)
                 remove_from_index(filename)
