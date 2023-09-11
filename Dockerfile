@@ -1,2 +1,3 @@
 FROM python:latest
-RUN 'curl -fsSL https://aka.ms/install-azd.sh | bash'
+FROM node:7-alpine
+RUN 'curl -fsSL https://aka.ms/install-azd.sh | sh'
