@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
     environment {
         //EXAMPLE_CREDS = credentials('example-credentials-id')
         AZURE_ENV_NAME="poc2"
