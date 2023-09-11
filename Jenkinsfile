@@ -23,9 +23,13 @@ pipeline {
         BACKEND_URI="https://app-backend-eux4lr2kz4si4.azurewebsites.net"
     }
     stages {
-        stage('Build') {
+        stage('Check docker image') {
             steps {
                 sh 'azd -h'
+            }
+        }
+        stage('Check sources') {
+            steps {
                 sh 'pwd'
                 sh 'ls -la'  
             }
