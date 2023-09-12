@@ -1,5 +1,6 @@
 FROM node:7-alpine
 # Enable verbose mode
+ARG CACHEBUST=1
 RUN set -x
 # Update the package list and install Python 3
 RUN apk update && \
