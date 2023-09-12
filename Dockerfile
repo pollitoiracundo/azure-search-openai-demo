@@ -16,4 +16,4 @@ RUN curl -fsSL https://aka.ms/install-azd.sh | bash
 # test 
 RUN python3 --version
 RUN node --version
-RUN /usr/local/bin/azd --help
+RUN /opt/microsoft/azd/azd-linux-amd64 --help
